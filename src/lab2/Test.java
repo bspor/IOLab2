@@ -18,20 +18,27 @@ public class Test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       String string = "How/WRB can/MD I/PRP find/VB a/DT list/NN of/IN celebrities/NNS '/POS real/JJ names/NNS ?/.";
-        Pattern pattern = Pattern.compile("(?<=/).+?(?= |$)");
+       String string = "(23)";
+        Pattern pattern = Pattern.compile(".*\\(|\\).*");
         Matcher matcher = pattern.matcher(string);
-
+        while (matcher.matches()) {
+            System.out.println("dude " + matcher.group(1));
+                }
         LinkedList<String> list = new LinkedList<String>();
-
+ //System.out.println(string.replaceAll(".*\\(|\\).*", "$1"));
         // Loop through and find all matches and store them into the List
         while(matcher.find()) { 
             list.add(matcher.group()); 
         }
-
+        if (matcher.matches()) {
+                System.out.println("yo " + matcher.groupCount());
+        }
         // Print out the contents of this List
         for(String match : list) { 
             System.out.println(match); 
         }
+        
+        
+        //System.out.println(string.replaceAll(".*\\(|\\).*", "$1"));
     }
 }
