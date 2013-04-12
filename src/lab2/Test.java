@@ -21,9 +21,9 @@ public class Test {
        String string = "(23)";
         Pattern pattern = Pattern.compile(".*\\(|\\).*");
         Matcher matcher = pattern.matcher(string);
-        while (matcher.matches()) {
-            System.out.println("dude " + matcher.group(1));
-                }
+//        while (matcher.matches()) {
+//            System.out.println("dude " + matcher.group(1));
+//        }
         LinkedList<String> list = new LinkedList<String>();
  //System.out.println(string.replaceAll(".*\\(|\\).*", "$1"));
         // Loop through and find all matches and store them into the List
@@ -37,7 +37,11 @@ public class Test {
         for(String match : list) { 
             System.out.println(match); 
         }
-        
+        String s = "test string (67)";
+        Pattern p = Pattern.compile("\\(.*\\)");
+        Matcher m = p.matcher(s);
+        if(m.find())
+           System.out.println(m.group().subSequence(1, m.group().length()-1));
         
         //System.out.println(string.replaceAll(".*\\(|\\).*", "$1"));
     }
