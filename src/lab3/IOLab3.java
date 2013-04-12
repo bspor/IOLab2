@@ -1,5 +1,6 @@
-package lab1;
+package lab3;
 
+import lab1.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -15,7 +16,7 @@ import java.util.regex.Pattern;
  *
  * @author Brandon
  */
-public class IOLab1 {
+public class IOLab3 {
 
     /**
      * @param args the command line arguments
@@ -43,11 +44,10 @@ public class IOLab1 {
                 //System.out.println(line);
                 line = in.readLine();  // strips out any carriage return chars
                 if (line != null) {
-                    System.out.println(line); //this satisfies the first step
                     Pattern pattern = Pattern.compile(regexPattern);
                     Matcher matcher = pattern.matcher(line);
                     if (matcher.find()) {
-                        //System.out.println(line); //this satisfies the first step
+                        //System.out.println(line);
                         keyVal = line;
                     } else {
                         //System.out.println("Add this to the record " + line);
@@ -67,17 +67,13 @@ public class IOLab1 {
                 System.out.println(e.getCause());
             }
         }
-       queryRecords(key, "(1)", "first_name" );
+       //Throws and error if input is not correct. Validates magic number, 
+       //err handling, and DIP, but it works for what we need it to for now.
+       queryByRecordAndFieldName(key, "(2)", "city" );
     }
-//    for (Map.Entry<String, Map> entry : key.entrySet()) {
-//            System.out.println("Key = " + entry.getKey() + ", Value = " 
-//                    + entry.getValue());
-//        }
-    public static void queryRecords(Map<String, Map> key, String valKey, String field) {
-        //for (Map.Entry<String, Map> entry : key.entrySet()) {
+    
+    public static void queryByRecordAndFieldName(Map<String, Map> key, String valKey, String field) {
             Map <String, String> mapOutput = new LinkedHashMap<String, String>(key.get(valKey));
             System.out.println(mapOutput.get(field));
-            
-        //}
     }
 }
