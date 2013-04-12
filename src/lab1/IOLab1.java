@@ -66,11 +66,17 @@ public class IOLab1 {
                 System.out.println(e.getCause());
             }
         }
-        //Output Records
-        for (Map.Entry<String, Map> entry : key.entrySet()) {
-            System.out.println("Key = " + entry.getKey() + ", Value = " 
-                    + entry.getValue());
-
-        }
+       queryRecords(key, "(1)", "first_name" );
+    }
+//    for (Map.Entry<String, Map> entry : key.entrySet()) {
+//            System.out.println("Key = " + entry.getKey() + ", Value = " 
+//                    + entry.getValue());
+//        }
+    public static void queryRecords(Map<String, Map> key, String valKey, String field) {
+        //for (Map.Entry<String, Map> entry : key.entrySet()) {
+            Map <String, String> mapOutput = new LinkedHashMap<String, String>(key.get(valKey));
+            System.out.println(mapOutput.get(field));
+            
+        //}
     }
 }
